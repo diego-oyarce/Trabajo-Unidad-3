@@ -1,0 +1,35 @@
+.menu{
+    background-color: darkcyan;
+    height: 50px;
+    text-align:justify;
+}
+.link{
+    color: aliceblue;
+    text-decoration: none;
+    margin: 1%;
+    font-size: 170%;
+}
+.titulo{
+    font-size: 80px;
+    text-align: center;
+    color: aliceblue;
+}
+.enunciado{
+    color: aliceblue;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+.integrantes{
+    color: aliceblue;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+.hr{
+    color:aliceblue;
+}
+.repo-github{
+    width: 20%;
+    height: 20%;
+    margin-top: auto;
+    margin-left: 40%;
+}
