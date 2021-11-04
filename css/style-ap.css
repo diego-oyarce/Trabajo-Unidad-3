@@ -1,0 +1,180 @@
+.body{
+    background-color:darkslateblue;
+}
+.menu{
+    background-color: darkcyan;
+    height: 50px;
+    text-align:justify;
+}
+.link{
+    color:white;
+    margin: 2%;
+    text-decoration: none;
+    font-size: 200%;
+}
+.link:hover{
+    color: hotpink;
+}
+.h1,
+.h2{
+    color: white;
+    text-align: center;
+}
+.h1:hover,
+.h2:hover{
+    color: lightcoral;
+}
+.titulos{
+    text-align: center;
+}
+.titulo-a1{
+    font-size: 280%;
+    display: inline-block;
+    text-align: left;
+    color: aliceblue;
+    margin-left: 1%;
+    margin-right: 15%;
+}
+.titulo-a2{
+    font-size: 280%;
+    display: inline-block;
+    text-align: right;
+    color: aliceblue;
+    margin-left: 15%;
+    margin-right: 2%;
+}
+.botones{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.union{
+    margin: 1%;
+    background-color:cornflowerblue;
+    color: cornsilk;
+    border: solid;
+    border-width: 2px;
+    border-radius: 6px;
+    width: 130px;
+    height: 70px;
+    font-size: 140%;
+}
+.concatenacion{
+    margin: 1%;
+    background-color:cornflowerblue;
+    color: cornsilk;
+    border: solid;
+    border-width: 2px;
+    border-radius: 6px;
+    width: 170px;
+    height: 70px;
+    font-size: 140%;
+}
+.union:hover,
+.concatenacion:hover{
+    background-color: deeppink;
+}
+.automata1{
+    background-color:darkseagreen;
+    border-width: 2px;
+    border-style:hidden;
+    border-radius: 6px;
+    margin: 2%;
+    width: 45%;
+    height: 450px;
+    display: inline-block;
+}
+.automata2{
+    background-color:darkgrey;
+    border-width: 2px;
+    border-style:hidden;
+    border-radius: 6px;
+    margin: 2%;
+    width: 45%;
+    height: 450px;
+    display: inline-block;
+}
+.automata-resultados{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.resultados-automata{
+    background-color:darksalmon;
+    border-style:hidden;
+    border-radius: 6px;
+    margin: 2%;
+    width: 60%;
+    height: 370px;
+}
+#state-popUp{
+    color: floralwhite;
+    display:none;
+    position:absolute;
+    top:60%;
+    left:8%;
+    z-index:2;
+    width:500px;
+    height:130px;
+    background-color:darkslateblue;
+    border-style:solid;
+    border-radius: 6px;
+    border-width:1px;
+    padding:10px;
+    text-align: center;
+}
+#state-popUp2{
+    color: floralwhite;
+    display:none;
+    position:absolute;
+    top:60%;
+    margin-left: 40%;
+    z-index:2;
+    width:500px;
+    height:130px;
+    background-color:darkslateblue;
+    border-style:solid;
+    border-radius: 6px;
+    border-width:1px;
+    padding:10px;
+    text-align: center;
+}
+#transition-popUp2,
+#transition-popUp{
+    color: floralwhite;
+    display:none;
+    position:absolute;
+    top: 60%;
+    left:8%;
+    z-index:2;
+    width:280px;
+    height:120px;
+    background-color:darkslateblue;
+    border-style:solid;
+    border-radius: 6px;
+    border-width:1px;
+    padding:10px;
+    text-align: center;
+}
+#saveButton-state2,
+#cancelButton-state2,
+#saveButton-state,
+#cancelButton-state{
+    border-radius: 6px;
+    border: solid;
+    border-width: 1px;
+}
+#saveButton-state2:hover,
+#cancelButton-state2:hover,
+#saveButton-state:hover,
+#cancelButton-state:hover{
+    background-color: darkgoldenrod;
+}
+#state-id2,
+#state-final2,
+#state-id,
+#state-final{
+    border-radius: 6px;
+    border: solid;
+    border-width: 1px;
+}

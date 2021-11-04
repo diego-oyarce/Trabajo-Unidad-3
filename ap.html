@@ -5,8 +5,88 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autómatas de pila</title>
+    <link rel = "stylesheet" href= "./css/style-ap.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
-<body>
-    
+<body class="body">
+    <div class="menu">
+        <a href="index.html" class="link">Inicio</a>
+        <a href="afd.html" class="link">AFD</a>
+    </div>
+    <h1 class="h1">Autómatas de pila</h1>
+    <h2 class="h2">Ingrese los Autómatas de pila</h2>
+    <div class="titulos">
+        <h2 class="titulo-a1">Autómata de pila 1</h2>
+        <h2 class="titulo-a2">Autómata de pila 2</h2>
+    </div>
+    <!-- <div class="alfabetos"> 
+        <div class="div-alfabeto1">
+            <tr>Alfabeto <input id="alfabeto-automata1" type="text" placeholder="a;b;c;?">
+                <button onclick="guardarAlfabeto()" class="alfabeto1">Guardar</button>
+            </tr>
+        </div>
+        <div class="div-alfabeto2">
+            <tr>Alfabeto <input id="alfabeto-automata2" type="text" placeholder="a;b;c;?">
+                <button onclick="guardarAlfabeto2()" class="alfabeto2">Guardar</button>
+            </tr>
+        </div>
+    </div> -->
+    <div class="automatas">
+        <div class="automata1" id="automataDiv"></div>
+        <div class="automata2" id="automataDiv2"></div>
+    </div>
+    <div class="botones">
+        <button onclick="nada()" class="union">Unión</button>
+        <button onclick="nada()" class="concatenacion">Concatenación</button>
+    </div>
+    <div class="automata-resultados">
+        <div class="resultados-automata" id="resultado"></div>
+    </div>
+    <div id="state-popUp">
+        <span id="operation-state">Estado</span>
+        <table style="margin:auto;">
+            <tr>
+            <td>Estado</td><td><input id="state-id" placeholder="id state"></td>
+            <td>Estado Final</td><td><input id="state-final" placeholder="si o no"></td>
+            </tr>
+        </table>
+        <input type="button" value="Guardar" id="saveButton-state">
+        <input type="button" value="Cancelar" id="cancelButton-state">
+    </div>
+    <div id="transition-popUp">
+        <span id="operation-transition">Transición</span>
+        <table style="margin:auto;">
+        <tr>
+            <td>Evento</td>
+            <td><input id="transition-label" placeholder="Agregar evento"></td>
+        </tr>
+        </table>
+        <input type="button" value="Guardar" id="saveButton-transition">
+        <input type="button" value="Cancelar" id="cancelButton-transition">
+    </div>
+    <div id="state-popUp2">
+        <span id="operation-state2">Estado</span>
+        <table style="margin:auto;">
+            <tr>
+            <td>Estado</td><td><input id="state-id2" placeholder="id state"></td>
+            <td>Estado Final</td><td><input id="state-final2" placeholder="si o no"></td>
+            </tr>
+        </table>
+        <input type="button" value="Guardar" id="saveButton-state2">
+        <input type="button" value="Cancelar" id="cancelButton-state2">
+    </div>
+    <div id="transition-popUp2">
+        <span id="operation-transition2">Transición</span>
+        <table style="margin:auto;">
+        <tr>
+            <td>Evento</td><td><input id="transition-label2" placeholder="Agregar evento"></td>
+        </tr>
+        </table>
+        <input type="button" value="Guardar" id="saveButton-transition2">
+        <input type="button" value="Cancelar" id="cancelButton-transition2">
+    </div>
+
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <script src="js/apApp.js"></script>
 </body>
 </html>
