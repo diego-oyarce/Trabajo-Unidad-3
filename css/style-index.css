@@ -4,15 +4,21 @@
     text-align:justify;
 }
 .link{
-    color: aliceblue;
+    color:white;
+    margin: 2%;
     text-decoration: none;
-    margin: 1%;
-    font-size: 170%;
+    font-size: 200%;
+}
+.link:hover{
+    color: hotpink;
 }
 .titulo{
-    font-size: 80px;
+    font-size: 60px;
     text-align: center;
     color: aliceblue;
+}
+.titulo:hover{
+    color: lightcoral;
 }
 .enunciado{
     color: aliceblue;

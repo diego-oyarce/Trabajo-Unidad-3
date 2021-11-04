@@ -19,6 +19,9 @@
     color: white;
     text-align: center;
 }
+.h1:hover{
+    color: lightcoral;
+}
 .ingrese-grafo{
     color: thistle;
     text-align: center;
@@ -28,6 +31,7 @@
     margin: 10%;
 }
 .expresion-regular{
+    font-size: 160%;
     margin: 1%;
     margin-left: 45%;
     background-color:cornflowerblue;
@@ -35,6 +39,8 @@
     border: solid;
     border-width: 2px;
     border-radius: 6px;
+    width: 160px;
+    height: 80px;
 }
 .expresion-regular:hover{
     background-color: darksalmon;
@@ -47,4 +53,58 @@
     height: 500px;
     display: flex;
     justify-content: center;
+}
+#state-popUp{
+    color: floralwhite;
+    display:none;
+    position:absolute;
+    top:90%;
+    left:25%;
+    z-index:2;
+    width:500px;
+    height:130px;
+    background-color:indianred;
+    border-style:solid;
+    border-radius: 6px;
+    border-width:1px;
+    padding:10px;
+    text-align: center;
+}
+#transition-popUp{
+    color: floralwhite;
+    display:none;
+    position:absolute;
+    top:90%;
+    left:25%;
+    z-index:2;
+    width:280px;
+    height:120px;
+    background-color:darkslateblue;
+    border-style:solid;
+    border-radius: 6px;
+    border-width:1px;
+    padding:10px;
+    text-align: center;
+}
+#saveButton-state,
+#cancelButton-state{
+    border-radius: 6px;
+    border: solid;
+    border-width: 1px;
+}
+#saveButton-state:hover,
+#cancelButton-state:hover{
+    background-color: darkgoldenrod;
+}
+#state-id,
+#state-final{
+    border-radius: 6px;
+    border: solid;
+    border-width: 1px;
+}
+.repo-github{
+    width: 20%;
+    height: 20%;
+    margin-top: auto;
+    margin-left: 40%;
 }

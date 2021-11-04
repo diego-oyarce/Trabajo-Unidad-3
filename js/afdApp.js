@@ -19,8 +19,8 @@ var locales = {
         back:"Volver",
         addNode:"Agregar Estado",
         addEdge:"Agregar Transición",
-        editNode:"Editar Nodo",
-        editEdge:"Editar Arista",
+        editNode:"Editar Estado",
+        editEdge:"Editar Transición",
         addDescription:"Click en un espacio vacío para agregar un estado",
         edgeDescription:"Click sobre estado-origen y arrastrar hasta estado-final para conectarlos",
         editEdgeDescription:""
@@ -97,8 +97,92 @@ var options = {
 
 var network = new vis.Network(container, data, options);
 
+function nodeClearPopUp() {
+    var nodeSaveButton = document.getElementById('saveButton-state');
+    var nodeCancelButton = document.getElementById('cancelButton-state');
+    nodeSaveButton.onclick = null;
+    nodeCancelButton.onclick = null;
+    var node_div = document.getElementById('state-popUp');
+    node_div.style.display = 'none';
+}
 
+function nodeSaveData(data,callback) {
+    var nodeIdInput = document.getElementById('state-id');
+    var finalState = document.getElementById('state-final').value;
+    data.id = nodeIdInput.value;
+    if(alfabeto1.length == 0){
+      alert("CUIDADO! Aun no se ha ingresado el alfabeto. Ingresa el alfabeto y vuelve a intentarlo");
+      return null;
+    }
+    else{
+      if((finalState == 'si') || (finalState == 'SI') || (finalState == 'Si') || (finalState == 'no') || (finalState == 'NO') || (finalState == 'No')){
+        if(nodes.length == 0){
+          if(finalState == 'si'){
+            arrayIdEstados.push(nodes.length);
+            nodes.add({id:nodes.length, label:nodeIdInput.value+": Estado Inicial y Estado Final", title:"Estado Inicial y Final"});
+            arrayEstadosFinales.push(1);
+            arrayLabelEstados.push(data.id);
+          }
+          else{
+            arrayIdEstados.push(nodes.length);
+            nodes.add({id:nodes.length, label:nodeIdInput.value + ": Estado Inicial", title:"Estado Inicial"});
+            arrayEstadosFinales.push(0);
+            arrayLabelEstados.push(data.id);
+          }
+        }
+        else{
+          if(finalState == 'si'){
+            arrayIdEstados.push(nodes.length);
+            nodes.add({id:nodes.length, label:nodeIdInput.value + ": Estado Final", title:"Estado Final"});
+            arrayEstadosFinales.push(1);
+            arrayLabelEstados.push(data.id);
+          }
+          else{
+            arrayIdEstados.push(nodes.length);
+            nodes.add({id:nodes.length, label:nodeIdInput.value});
+            arrayEstadosFinales.push(0);
+            arrayLabelEstados.push(data.id);
+          }
+        }
+        nodeClearPopUp();
+        network.redraw();
+        callback(data);
+      }
+      else{
+        alert("Se debe indicar si el estado ingresado es final o no. Ingrese 'si' o 'no'.");
+        return null;
+      }
+    }
+}
 
+function edgeClearPopUp(){
+    var edgeSaveButton = document.getElementById('saveButton-transition');
+    var edgeCancelButton = document.getElementById('cancelButton-transition');
+    edgeSaveButton.onclick = null;
+    edgeCancelButton.onclick = null;
+    var edge_div = document.getElementById('transition-popUp');
+    edge_div.style.display = 'none';
+}
+
+function edgeSaveData(data,callback){
+    var edgeLabelInput = document.getElementById('transition-label');
+    data.label = edgeLabelInput.value;
+    if(edgeLabelInput.length > 1){
+      alert("Solo se permite ingresar un caracter.");
+      return null;
+    }
+    else{
+      if(alfabeto1.includes(data.label)){
+        arrayEventos.push({from:data.from, to:data.to, evento:data.label});
+      }
+      else{
+        alert("El evento ingresado no pertenece al alfabeto. Intente nuevamente.");
+        return null;
+      }
+      edgeClearPopUp();
+      callback(data);
+    }
+}
 
 
 

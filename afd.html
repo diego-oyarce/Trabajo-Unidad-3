@@ -15,10 +15,36 @@
         <a href="ap.html" class="link">Autómatas de pila</a>
     </div>
     <h1 class="h1">Autómata Finito Determinista</h1>
-    <p class="instrucciones">Instrucciones</p>
+    <!-- <p class="instrucciones">Instrucciones</p> -->
     <h2 class="ingrese-grafo">Ingrese un AFD</h2>
     <div id="afd"></div>
     <button onclick="nada()" class="expresion-regular">Obtener ER</button>
+
+    <div id="state-popUp">
+        <span id="operation-state">Estado</span>
+        <table style="margin:auto;">
+            <tr>
+            <td>Estado</td><td><input id="state-id" placeholder="id state"></td>
+            <td>Estado Final</td><td><input id="state-final" placeholder="si o no"></td>
+            </tr>
+        </table>
+        <input type="button" value="Guardar" id="saveButton-state">
+        <input type="button" value="Cancelar" id="cancelButton-state">
+    </div>
+    <div id="transition-popUp">
+        <span id="operation-transition">Transición</span>
+        <table style="margin:auto;">
+        <tr>
+            <td>Evento</td>
+            <td><input id="transition-label" placeholder="Agregar evento"></td>
+        </tr>
+        </table>
+        <input type="button" value="Guardar" id="saveButton-transition">
+        <input type="button" value="Cancelar" id="cancelButton-transition">
+    </div>
+    
+    <hr class="hr">
+    <a href="https://github.com/diego-oyarce/Trabajo-Unidad-3" target="_blank" rel="noopener noreferrer"><img src=".\imagenes\github.png" class="repo-github"></a>
 
     <script src="js/afdApp.js"></script>
 </body>
