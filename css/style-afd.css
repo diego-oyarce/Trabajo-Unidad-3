@@ -1,0 +1,50 @@
+.body{
+    background-color:darkslateblue;
+}
+.menu{
+    background-color: darkcyan;
+    height: 50px;
+    text-align:justify;
+}
+.link{
+    color:white;
+    margin: 2%;
+    text-decoration: none;
+    font-size: 200%;
+}
+.link:hover{
+    color: hotpink;
+}
+.h1{
+    color: white;
+    text-align: center;
+}
+.ingrese-grafo{
+    color: thistle;
+    text-align: center;
+}
+.instrucciones{
+    color: wheat;
+    margin: 10%;
+}
+.expresion-regular{
+    margin: 1%;
+    margin-left: 45%;
+    background-color:cornflowerblue;
+    color: cornsilk;
+    border: solid;
+    border-width: 2px;
+    border-radius: 6px;
+}
+.expresion-regular:hover{
+    background-color: darksalmon;
+}
+#afd{
+    background-color:darkseagreen;
+    border-radius: 10px;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
