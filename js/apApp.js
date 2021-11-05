@@ -247,6 +247,35 @@ var network2 = new vis.Network(container2, data2, options2);
 //AUTOMATA RESULTADOS
 var network3 = new vis.Network(containerResultados, dataResultados, optionsResultados);
 
+//GUARDAR ALFABETO AUTOMATA 1
+function guardarAlfabeto(){
+  alfabetoAutomata1 = document.getElementById('alfabeto-automata1').value;
+  alfabeto1 = alfabetoAutomata1.split(';');
+  alfabeto1.sort();
+  if(alfabeto1.length < 2){
+    alert("El alfabeto ingresado es muy corto. Vuelva a intentarlo.");
+    return false;
+  }
+  else{
+    alert("Alfabeto ingresado correctamente. Alfabeto: " + alfabeto1);
+    return true;
+  }
+}
+//GUARDAR ALFABETO AUTOMATA 2
+function guardarAlfabeto2(){
+  alfabetoAutomata2 = document.getElementById('alfabeto-automata2').value;
+  alfabeto2 = alfabetoAutomata2.split(';');
+  alfabeto2.sort();
+  if(alfabeto2.length < 2){
+    alert("El alfabeto ingresado es muy corto. Vuelva a intentarlo.");
+    return false;
+  }
+  else{
+    alert("Alfabeto ingresado correctamente. Alfabeto: " + alfabeto2);
+    return true;
+  }
+}
+
 //A1
 function nodeClearPopUp() {
     var nodeSaveButton = document.getElementById('saveButton-state');

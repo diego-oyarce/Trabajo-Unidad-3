@@ -26,10 +26,6 @@
     color: thistle;
     text-align: center;
 }
-.instrucciones{
-    color: wheat;
-    margin: 10%;
-}
 .expresion-regular{
     font-size: 160%;
     margin: 1%;
@@ -112,9 +108,9 @@
     display: inline-block;
     text-align: left;
     color: aliceblue;
+    margin: 2%;
     margin-right: 20%;
     margin-left: 10%;
-    margin: 2%;
 }
 .guardar-alfabeto{
     border: solid;

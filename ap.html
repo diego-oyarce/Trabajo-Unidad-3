@@ -19,7 +19,7 @@
         <h2 class="titulo-a1">Autómata de pila 1</h2>
         <h2 class="titulo-a2">Autómata de pila 2</h2>
     </div>
-    <!-- <div class="alfabetos"> 
+    <div class="alfabetos"> 
         <div class="div-alfabeto1">
             <tr>Alfabeto <input id="alfabeto-automata1" type="text" placeholder="a;b;c;?">
                 <button onclick="guardarAlfabeto()" class="alfabeto1">Guardar</button>
@@ -30,7 +30,7 @@
                 <button onclick="guardarAlfabeto2()" class="alfabeto2">Guardar</button>
             </tr>
         </div>
-    </div> -->
+    </div>
     <div class="automatas">
         <div class="automata1" id="automataDiv"></div>
         <div class="automata2" id="automataDiv2"></div>
@@ -44,10 +44,10 @@
     </div>
     <div id="state-popUp">
         <span id="operation-state">Estado</span>
-        <table style="margin:auto;">
+        <table style="margin:auto;" aria-describedby="Ingreso de estados para AP 1">
             <tr>
-            <td>Estado</td><td><input id="state-id" placeholder="id state"></td>
-            <td>Estado Final</td><td><input id="state-final" placeholder="si o no"></td>
+            <th scope="rowgroup">Estado</th><td><input id="state-id" placeholder="id state"></td>
+            <th scope="rowgroup">Estado Final</th><td><input id="state-final" placeholder="si o no"></td>
             </tr>
         </table>
         <input type="button" value="Guardar" id="saveButton-state">
@@ -55,9 +55,9 @@
     </div>
     <div id="transition-popUp">
         <span id="operation-transition">Transición</span>
-        <table style="margin:auto;">
+        <table style="margin:auto;" aria-describedby="Ingreso de transición">
         <tr>
-            <td>Evento</td>
+            <th scope="rowgroup">Evento</th>
             <td><input id="transition-label" placeholder="Agregar evento"></td>
         </tr>
         </table>
@@ -66,10 +66,10 @@
     </div>
     <div id="state-popUp2">
         <span id="operation-state2">Estado</span>
-        <table style="margin:auto;">
+        <table style="margin:auto;" aria-describedby="Ingreso de estados para AP 2">
             <tr>
-            <td>Estado</td><td><input id="state-id2" placeholder="id state"></td>
-            <td>Estado Final</td><td><input id="state-final2" placeholder="si o no"></td>
+            <th scope="rowgroup">Estado</th><td><input id="state-id2" placeholder="id state"></td>
+            <th scope="rowgroup">Estado Final</th><td><input id="state-final2" placeholder="si o no"></td>
             </tr>
         </table>
         <input type="button" value="Guardar" id="saveButton-state2">
@@ -77,9 +77,10 @@
     </div>
     <div id="transition-popUp2">
         <span id="operation-transition2">Transición</span>
-        <table style="margin:auto;">
+        <table style="margin:auto;" aria-describedby="Ingreso de transición">
         <tr>
-            <td>Evento</td><td><input id="transition-label2" placeholder="Agregar evento"></td>
+            <th scope="rowgroup">Evento</th>
+            <td><input id="transition-label2" placeholder="Agregar evento"></td>
         </tr>
         </table>
         <input type="button" value="Guardar" id="saveButton-transition2">

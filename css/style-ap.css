@@ -178,3 +178,30 @@
     border: solid;
     border-width: 1px;
 }
+.div-alfabeto1{
+    display: inline-block;
+    text-align: left;
+    color: aliceblue;
+    margin-right: 20%;
+}
+.div-alfabeto2{
+    display: inline-block;
+    text-align: left;
+    color: aliceblue;
+    margin-left: 20%;
+}
+#alfabeto-automata2,
+#alfabeto-automata1{
+    border: solid;
+    border-width: 1px;
+    border-radius: 6px;
+}
+.alfabetos{
+    text-align: center;
+}
+.alfabeto2,
+.alfabeto1{
+    color: floralwhite;
+    background-color: darkorchid;
+    border-radius: 5px;
+}
