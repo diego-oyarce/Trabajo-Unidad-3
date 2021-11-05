@@ -15,17 +15,31 @@
         <a href="ap.html" class="link">Autómatas de pila</a>
     </div>
     <h1 class="h1">Autómata Finito Determinista</h1>
-    <!-- <p class="instrucciones">Instrucciones</p> -->
+    <div>
+        <p class="instrucciones">Para el correcto uso de la aplicación considerar las siguientes reglas:
+            <ul class="lista-instrucciones">
+                <li>Antes de ingresar el AFD se debe ingresar el alfabeto de este autómata, de lo contrario no se podrán ingresar elementos al AFD.</li>
+                <li>El primer estado que se ingresa se considerará como estado inicial.</li>
+                <li>Al momento de ingresar un estado se debe indicar si este será final o no.</li>
+                <li>Para obtener la expresión regular del AFD oprima el boton <b>Obtener ER</b>.</li>
+            </ul>
+        </p>
+    </div>
     <h2 class="ingrese-grafo">Ingrese un AFD</h2>
+    <div class="alfabeto">
+        <tr>Alfabeto <input id="alfabeto-automata" type="text" placeholder="a;b;c">
+            <button onclick="guardarAlfabeto()" class="guardar-alfabeto">Guardar</button>
+        </tr>
+    </div>
     <div id="afd"></div>
     <button onclick="nada()" class="expresion-regular">Obtener ER</button>
 
     <div id="state-popUp">
         <span id="operation-state">Estado</span>
-        <table style="margin:auto;">
+        <table style="margin:auto;" aria-describedby="Ingreso de estados para AFD">
             <tr>
-            <td>Estado</td><td><input id="state-id" placeholder="id state"></td>
-            <td>Estado Final</td><td><input id="state-final" placeholder="si o no"></td>
+            <th scope="rowgroup">Estado</th><td><input id="state-id" placeholder="id state"></td>
+            <th scope="rowgroup">Estado Final</th><td><input id="state-final" placeholder="si o no"></td>
             </tr>
         </table>
         <input type="button" value="Guardar" id="saveButton-state">
@@ -33,9 +47,9 @@
     </div>
     <div id="transition-popUp">
         <span id="operation-transition">Transición</span>
-        <table style="margin:auto;">
+        <table style="margin:auto;" aria-describedby="Ingreso de transición">
         <tr>
-            <td>Evento</td>
+            <th scope="rowgroup">Evento</th>
             <td><input id="transition-label" placeholder="Agregar evento"></td>
         </tr>
         </table>
@@ -44,7 +58,7 @@
     </div>
     
     <hr class="hr">
-    <a href="https://github.com/diego-oyarce/Trabajo-Unidad-3" target="_blank" rel="noopener noreferrer"><img src=".\imagenes\github.png" class="repo-github"></a>
+    <a href="https://github.com/diego-oyarce/Trabajo-Unidad-3" target="_blank" rel="noopener noreferrer"><img src=".\imagenes\github.png" class="repo-github" alt="Repositorio de GitHub"></a>
 
     <script src="js/afdApp.js"></script>
 </body>

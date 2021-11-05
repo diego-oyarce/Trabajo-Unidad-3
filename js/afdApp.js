@@ -1,5 +1,5 @@
-var alfabetoAutomata1 = [];
-var alfabeto1 = [];
+var alfabetoAutomata = [];
+var alfabeto = [];
 var nodes = new vis.DataSet([]);
 var edges = new vis.DataSet([]);
 var arrayIdEstados = [];
@@ -97,6 +97,20 @@ var options = {
 
 var network = new vis.Network(container, data, options);
 
+function guardarAlfabeto(){
+  alfabetoAutomata = document.getElementById('alfabeto-automata').value;
+  alfabeto = alfabetoAutomata.split(';');
+  alfabeto.sort();
+  if(alfabeto.length < 2){
+    alert("El alfabeto ingresado es muy corto. Vuelva a intentarlo.");
+    return false;
+  }
+  else{
+    alert("Alfabeto ingresado correctamente. Alfabeto: " + alfabeto);
+    return true;
+  }
+}
+
 function nodeClearPopUp() {
     var nodeSaveButton = document.getElementById('saveButton-state');
     var nodeCancelButton = document.getElementById('cancelButton-state');
@@ -110,7 +124,7 @@ function nodeSaveData(data,callback) {
     var nodeIdInput = document.getElementById('state-id');
     var finalState = document.getElementById('state-final').value;
     data.id = nodeIdInput.value;
-    if(alfabeto1.length == 0){
+    if(alfabeto.length == 0){
       alert("CUIDADO! Aun no se ha ingresado el alfabeto. Ingresa el alfabeto y vuelve a intentarlo");
       return null;
     }
@@ -183,10 +197,6 @@ function edgeSaveData(data,callback){
       callback(data);
     }
 }
-
-
-
-
 
 
 function nada(){

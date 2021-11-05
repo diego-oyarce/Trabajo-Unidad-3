@@ -58,7 +58,7 @@
     color: floralwhite;
     display:none;
     position:absolute;
-    top:90%;
+    top:60%;
     left:25%;
     z-index:2;
     width:500px;
@@ -107,4 +107,29 @@
     height: 20%;
     margin-top: auto;
     margin-left: 40%;
+}
+.alfabeto{
+    display: inline-block;
+    text-align: left;
+    color: aliceblue;
+    margin-right: 20%;
+    margin-left: 10%;
+    margin: 2%;
+}
+.guardar-alfabeto{
+    border: solid;
+    border-width: 1px;
+    border-radius: 6px;
+}
+#alfabeto-automata{
+    border: solid;
+    border-width: 1px;
+    border-radius: 6px;
+}
+.instrucciones{
+    margin: 2%;
+    color: whitesmoke;
+}
+.lista-instrucciones{
+    color: whitesmoke;
 }
