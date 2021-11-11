@@ -1,8 +1,8 @@
 .body{
-    background-color:darkslateblue;
+    background-color:#3D1308;
 }
 .menu{
-    background-color: darkcyan;
+    background-color: #7B0D1E;
     height: 50px;
     text-align:justify;
 }
@@ -13,24 +13,24 @@
     font-size: 200%;
 }
 .link:hover{
-    color: hotpink;
+    color: #9F2042;
 }
 .h1{
     color: white;
     text-align: center;
 }
 .h1:hover{
-    color: lightcoral;
+    color: #9F2042;
 }
 .ingrese-grafo{
-    color: thistle;
+    color: #F8E5EE;
     text-align: center;
 }
 .expresion-regular{
     font-size: 160%;
     margin: 1%;
     margin-left: 45%;
-    background-color:cornflowerblue;
+    background-color:#3D1308;
     color: cornsilk;
     border: solid;
     border-width: 2px;
@@ -39,10 +39,10 @@
     height: 80px;
 }
 .expresion-regular:hover{
-    background-color: darksalmon;
+    background-color: #7B0D1E;
 }
 #afd{
-    background-color:darkseagreen;
+    background-color:#9F2042;
     border-radius: 10px;
     margin-left: 7%;
     margin-right: 7%;

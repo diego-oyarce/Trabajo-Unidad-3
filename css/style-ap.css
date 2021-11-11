@@ -1,8 +1,8 @@
 .body{
-    background-color:darkslateblue;
+    background-color:#3D1308;
 }
 .menu{
-    background-color: darkcyan;
+    background-color: #7B0D1E;
     height: 50px;
     text-align:justify;
 }
@@ -13,7 +13,7 @@
     font-size: 200%;
 }
 .link:hover{
-    color: hotpink;
+    color: #9F2042;
 }
 .h1,
 .h2{
@@ -22,7 +22,7 @@
 }
 .h1:hover,
 .h2:hover{
-    color: lightcoral;
+    color: #9F2042;
 }
 .titulos{
     text-align: center;
@@ -31,7 +31,7 @@
     font-size: 280%;
     display: inline-block;
     text-align: left;
-    color: aliceblue;
+    color: #F8E5EE;
     margin-left: 1%;
     margin-right: 15%;
 }
@@ -75,7 +75,7 @@
     background-color: deeppink;
 }
 .automata1{
-    background-color:darkseagreen;
+    background-color:#9F2042;
     border-width: 2px;
     border-style:hidden;
     border-radius: 6px;
@@ -85,7 +85,7 @@
     display: inline-block;
 }
 .automata2{
-    background-color:darkgrey;
+    background-color:#9F2042;
     border-width: 2px;
     border-style:hidden;
     border-radius: 6px;
@@ -100,7 +100,7 @@
     justify-content: center;
 }
 .resultados-automata{
-    background-color:darksalmon;
+    background-color:#9F2042;
     border-style:hidden;
     border-radius: 6px;
     margin: 2%;
@@ -202,6 +202,6 @@
 .alfabeto2,
 .alfabeto1{
     color: floralwhite;
-    background-color: darkorchid;
+    background-color: #7B0D1E;
     border-radius: 5px;
 }

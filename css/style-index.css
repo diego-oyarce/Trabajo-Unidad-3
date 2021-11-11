@@ -1,8 +1,8 @@
 .body{
-    background-color: darkslateblue;
+    background-color: #3D1308;
 }
 .menu{
-    background-color: darkcyan;
+    background-color: #7B0D1E;
     height: 50px;
     text-align:justify;
 }
@@ -13,23 +13,23 @@
     font-size: 200%;
 }
 .link:hover{
-    color: hotpink;
+    color: #9F2042;
 }
 .titulo{
     font-size: 60px;
     text-align: center;
-    color: aliceblue;
+    color: #F8E5EE;
 }
 .titulo:hover{
-    color: lightcoral;
+    color: #9F2042;
 }
 .enunciado{
-    color: aliceblue;
+    color: #F8E5EE;
     margin-left: 2%;
     margin-top: 2%;
 }
 .integrantes{
-    color: aliceblue;
+    color: #F8E5EE;
     margin-left: 2%;
     margin-right: 2%;
 }

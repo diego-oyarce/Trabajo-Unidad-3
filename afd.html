@@ -32,14 +32,15 @@
         </tr>
     </div>
     <div id="afd"></div>
-    <button onclick="nada()" class="expresion-regular">Obtener ER</button>
+    <button onclick="obtenerER()" class="expresion-regular">Obtener ER</button>
 
     <div id="state-popUp">
         <span id="operation-state">Estado</span>
         <table style="margin:auto;" aria-describedby="Ingreso de estados para AFD">
             <tr>
             <th scope="rowgroup">Estado</th><td><input id="state-id" placeholder="id state"></td>
-            <th scope="rowgroup">Estado Final</th><td><input id="state-final" placeholder="si o no"></td>
+            <!-- <th scope="rowgroup">Estado Final</th><td> <input id="state-final" placeholder="si o no"></td> -->
+            <th scope="rowgroup">Estado Final</th><td> <select id="state-final" placeholder="Seleccione"><option value="si">SI</option><option value="no" selected>NO</option></select> </td>
             </tr>
         </table>
         <input type="button" value="Guardar" id="saveButton-state">
