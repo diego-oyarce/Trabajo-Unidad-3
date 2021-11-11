@@ -204,21 +204,33 @@ function edgeSaveData(data,callback){
       callback(data);
     }
 }
-
-
+let idInicial = 0;
+let idFinalF = 0;
 function obtenerER(){
-  crearNuevoInicialFinal();
+  let newNodes = []; 
+  let newEdges = [];
+  
+  idInicial = nextId;
+  idFinalF = nextId + 1;
+  let cont = 0;
+
+  [newNodes, newEdges] = crearNuevoInicialFinal(newNodes, newEdges);
+
+  while(newEdges.length != 1 && cont <= 100){
+    newEdges = reduccionDeBucles(newNodes, newEdges);
+    newEdges = reduccionParalelos(newNodes, newEdges);
+    [newNodes, newEdges] = reduccionDeNodos(newNodes, newEdges);
+    cont++;
+  }
+  alert('Expresión Regular Encontrada: ' + newEdges[0].exp);
+
 }
 
 
-function crearNuevoInicialFinal(){
-  let newNodes = []; 
-  let newEdges = [];
+function crearNuevoInicialFinal(newNodes, newEdges){
   let idIni;
   let idFinal = [];
-  let idInicial = nextId;
-  let idFinalF = nextId + 1;
-  let cont = 0;
+
   newNodes.push({id:idInicial, label:"I: Estado Inicial", title:"Estado Inicial", final: 0, inicial: 1, exp: ''});
   newNodes.push({id:idFinalF, label:"F: Estado Final", title:"Estado Final", final: 1, inicial: 0, exp: ''});
   for(let a of nodes._data.entries()){
@@ -240,151 +252,96 @@ function crearNuevoInicialFinal(){
     newEdges.push({from: e, label: 'E', to: idFinalF, exp: ''});
   })
 
-  console.log(newEdges);
-  console.log(newNodes);
-  console.log(newEdges.length);
+  return [newNodes, newEdges];
+}
 
-  // newEdges.forEach((e, idx) => {
-  //   let cantidadSalidasRepetidas = 0;
-
-  //   newEdges.forEach(e1 =>{
-  //     if(e.to == e1.to && e.from == e1.from ) cantidadSalidasRepetidas ++;
-  //   })
-
-  //   if(cantidadSalidasRepetidas > 1){
-  //     let newExp = e.exp ? e.exp : e.label == 'E' ? '' : e.label;
-  //     newEdges.forEach((e1, idx1) =>{
-  //       if(e.to == e1.to && e.from == e1.from && idx1 != idx){
-  //         if(newExp) newExp += `+${e1.exp ? e1.exp : e1.label == 'E' ? '' : e1.label}`;
-  //         else newExp = e1.exp ? e1.exp : e1.label == 'E' ? '' : e1.label;
-  //         newEdges.splice(idx1,1);
-  //       }
-  //     })
-  //     e.exp = newExp;
-  //   }
-
-  // })
-  console.log(newEdges.length);
-  //transiciones bucles
-  
-  console.log(newEdges.length);
-
-  //Reducción de transiciones
-  while(newEdges.length != 1 && cont <= 100){
-    for(let i = 0; i < newNodes.length; i++){
-      for(let j = 0; j < newEdges.length; j++){
-        if(newEdges[j].to == newNodes[i].id && newEdges[j].to == newEdges[j].from){
-          let newExp = newNodes[i].exp ? newNodes[i].exp : '';
-          newExp += newEdges[j].exp ? newExp ? '+' + '('+newEdges[j].exp+')*' : '('+newEdges[j].exp+')*' : newEdges[j].label == 'E'? '' : newExp ? '+' + '('+newEdges[j].label+')*' : '('+newEdges[j].label+')*'; 
-          newNodes[i].exp = (newNodes[i].exp ? '(':'') +newExp+(newNodes[i].exp ? ')':'') ;
-        }
+function reduccionDeBucles(newNodes, newEdges){
+  for(let i = 0; i < newNodes.length; i++){
+    for(let j = 0; j < newEdges.length; j++){
+      if(newEdges[j].to == newNodes[i].id && newEdges[j].to == newEdges[j].from){
+        let newExp = newNodes[i].exp ? newNodes[i].exp : '';
+        newExp += newEdges[j].exp ? newExp ? '+' + '('+newEdges[j].exp+')*' : '('+newEdges[j].exp+')*' : newEdges[j].label == 'E'? '' : newExp ? '+' + '('+newEdges[j].label+')*' : '('+newEdges[j].label+')*'; 
+        newNodes[i].exp = (newNodes[i].exp ? '(':'') +newExp+(newNodes[i].exp ? ')':'') ;
       }
     }
-
-    newEdges = newEdges.filter((edges)=>{
-      if(edges.from != edges.to){
-        return true;
-      }
-    })
-
-    let tmpNewEdges = [];
-    for(let i = 0; i < newNodes.length; i++){
-      
-      for(let j = 0; j < newEdges.length; j++){
-        let cantidadSalidasRepetidas = 0;
-        for(let z = j; z < newEdges.length; z++){
-          if(newEdges[j].to == newEdges[z].to && newEdges[j].from == newEdges[z].from && newEdges[j].from == newNodes[i].id ) cantidadSalidasRepetidas++;
-        }
-        if(cantidadSalidasRepetidas > 1){
-            let newExp = newEdges[j].exp ? '('+newEdges[j].exp+')' : newEdges[j].label == 'E'? '' : '('+newEdges[j].label+')';
-
-            for(let z = j + 1; z < newEdges.length; z++){
-              if(newEdges[j].to == newEdges[z].to && newEdges[j].from == newEdges[z].from && newEdges[j].from == newNodes[i].id ){
-                newExp += newExp ? newEdges[z].exp ? '+' + '('+newEdges[z].exp+')' : newEdges[z].label == 'E' ? '' : '+' + '('+newEdges[z].label+')' : newEdges[z].exp ? newEdges[z].exp: newEdges[z].label == 'E' ? '' : newEdges[z].label;
-                newEdges[z].to = 'e';
-                newEdges[z].from = 'e';
-              }
-            }
-            tmpNewEdges.push({from: newEdges[j].from, label: newExp ? '' : 'E', exp: '('+newExp+')', to: newEdges[j].to});
-            newEdges[j].to = 'e';
-            newEdges[j].from = 'e';
-
-        }
-      }
-
-      
-      newEdges = newEdges.filter(edge =>{
-        if(edge.to != 'e') return true;
-      })
-    }
-
-    tmpNewEdges.forEach((e)=>{
-      newEdges.push(e);
-    })
-
-    for(let i = 0; i< newNodes.length; i++ ){
-      if(newNodes[i].id != idFinalF && newNodes[i].id != idInicial){
-        newEdges.forEach((entrada, idxEntrada)=>{
-          if(entrada.to == newNodes[i].id){
-            newEdges.forEach((salida)=>{
-              if(salida.from == newNodes[i].id){
-                let newExp = entrada.exp ? entrada.exp : entrada.label == 'E' ? '' : entrada.label;
-                if(newNodes[i].exp) newExp += newNodes[i].exp;
-                newExp += salida.exp ? salida.exp : salida.label == 'E' ? '' : salida.label;
-                newEdges.push({from: entrada.from, label: newExp ? '' : 'E', exp: newExp, to: salida.to});
-              }
-            }) 
-            //newEdges.splice(idxEntrada, 1);
-          }
-        })
-        newEdges = newEdges.filter((salidas)=>{
-          if(salidas.from != newNodes[i].id){
-            return true;
-          }
-        })
-        newEdges = newEdges.filter((entradas)=>{
-          if(entradas.to != newNodes[i].id){
-            return true;
-          }
-        })
-        newNodes.splice(i, 1);
-        break;
-      }
-    }
-    cont++;
-  
-    // newEdges.forEach((e, idx) => {
-    //   if(e.to == idFinalF && e.from != idInicial){
-    //     let cantidadSalidas = 0;
-    //     let idxNodeDel;
-  
-    //     newEdges.forEach(e1 =>{
-    //       if(e.from == e1.from ) cantidadSalidas ++;
-    //     })
-  
-    //     if(cantidadSalidas == 1){
-    //       newEdges.forEach(e1 =>{
-    //         if(e1.to == e.from){
-    //           newNodes.forEach((n, idx)=>{
-    //             if(n.id == e.from){
-    //               let newExp = e1.exp ? e1.exp : e1.label == 'E' ? '' : e1.label;
-    //               if(n.exp) newExp += n.exp;
-    //               newExp += e.exp ? e.exp : e.label == 'E' ? '' : e.label;
-    //               e1.exp = newExp;
-    //               e1.to = e.to;
-    //               idxNodeDel = idx;
-    //             } 
-    //           })
-    //         }
-    //       })
-    //       newEdges.splice(idx, 1);
-    //       newNodes.splice(idxNodeDel, 1);
-    //     }
-        
-    //   }
-    // })
   }
-  
-  alert('Expresión Regular Encontrada: ' + newEdges[0].exp);
 
+  newEdges = newEdges.filter((edges)=>{
+    if(edges.from != edges.to){
+      return true;
+    }
+  })
+
+  return newEdges;
+}
+
+function reduccionParalelos(newNodes, newEdges){
+  let tmpNewEdges = [];
+  for(let i = 0; i < newNodes.length; i++){
+    
+    for(let j = 0; j < newEdges.length; j++){
+      let cantidadSalidasRepetidas = 0;
+      for(let z = j; z < newEdges.length; z++){
+        if(newEdges[j].to == newEdges[z].to && newEdges[j].from == newEdges[z].from && newEdges[j].from == newNodes[i].id ) cantidadSalidasRepetidas++;
+      }
+      if(cantidadSalidasRepetidas > 1){
+          let newExp = newEdges[j].exp ? '('+newEdges[j].exp+')' : newEdges[j].label == 'E'? '' : '('+newEdges[j].label+')';
+
+          for(let z = j + 1; z < newEdges.length; z++){
+            if(newEdges[j].to == newEdges[z].to && newEdges[j].from == newEdges[z].from && newEdges[j].from == newNodes[i].id ){
+              newExp += newExp ? newEdges[z].exp ? '+' + '('+newEdges[z].exp+')' : newEdges[z].label == 'E' ? '' : '+' + '('+newEdges[z].label+')' : newEdges[z].exp ? newEdges[z].exp: newEdges[z].label == 'E' ? '' : newEdges[z].label;
+              newEdges[z].to = 'e';
+              newEdges[z].from = 'e';
+            }
+          }
+          tmpNewEdges.push({from: newEdges[j].from, label: newExp ? '' : 'E', exp: '('+newExp+')', to: newEdges[j].to});
+          newEdges[j].to = 'e';
+          newEdges[j].from = 'e';
+
+      }
+    }
+
+    
+    newEdges = newEdges.filter(edge =>{
+      if(edge.to != 'e') return true;
+    })
+  }
+
+  tmpNewEdges.forEach((e)=>{
+    newEdges.push(e);
+  })
+
+  return newEdges;
+}
+
+function reduccionDeNodos(newNodes, newEdges){
+  for(let i = 0; i< newNodes.length; i++ ){
+    if(newNodes[i].id != idFinalF && newNodes[i].id != idInicial){
+      newEdges.forEach((entrada, idxEntrada)=>{
+        if(entrada.to == newNodes[i].id){
+          newEdges.forEach((salida)=>{
+            if(salida.from == newNodes[i].id){
+              let newExp = entrada.exp ? entrada.exp : entrada.label == 'E' ? '' : entrada.label;
+              if(newNodes[i].exp) newExp += newNodes[i].exp;
+              newExp += salida.exp ? salida.exp : salida.label == 'E' ? '' : salida.label;
+              newEdges.push({from: entrada.from, label: newExp ? '' : 'E', exp: newExp, to: salida.to});
+            }
+          }) 
+        }
+      })
+      newEdges = newEdges.filter((salidas)=>{
+        if(salidas.from != newNodes[i].id){
+          return true;
+        }
+      })
+      newEdges = newEdges.filter((entradas)=>{
+        if(entradas.to != newNodes[i].id){
+          return true;
+        }
+      })
+      newNodes.splice(i, 1);
+      break;
+    }
+  }
+  return [newNodes, newEdges];
 }
