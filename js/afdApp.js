@@ -135,45 +135,39 @@ function nodeSaveData(data,callback) {
       return null;
     }
     else{
-      if((finalState == 'si') || (finalState == 'no')){
-        if(nodes.length == 0){
-          if(finalState == 'si'){
-            arrayIdEstados.push(nextId);
-            nodes.add({id:nextId, label:nodeIdInput.value+": Estado Inicial y Estado Final", title:"Estado Inicial y Final", final: 1, inicial: 1});
-            // arrayEstadosFinales.push(1);
-            // arrayLabelEstados.push(data.id);
-          }
-          else{
-            arrayIdEstados.push(nextId);
-            nodes.add({id:nextId, label:nodeIdInput.value + ": Estado Inicial", title:"Estado Inicial", final: 0, inicial: 1});
-            // arrayEstadosFinales.push(0);
-            // arrayLabelEstados.push(data.id);
-          }
+      if(nodes.length == 0){
+        if(finalState == 'si'){
+          arrayIdEstados.push(nextId);
+          nodes.add({id:nextId, label:nodeIdInput.value+": Estado Inicial y Estado Final", title:"Estado Inicial y Final", final: 1, inicial: 1});
+          // arrayEstadosFinales.push(1);
+          // arrayLabelEstados.push(data.id);
         }
         else{
-          if(finalState == 'si'){
-            arrayIdEstados.push(nextId);
-            nodes.add({id:nextId, label:nodeIdInput.value + ": Estado Final", title:"Estado Final", final: 1, inicial: 0});
-            // arrayEstadosFinales.push(1);
-            // arrayLabelEstados.push(data.id);
-          }
-          else{
-            arrayIdEstados.push(nextId);
-            nodes.add({id:nextId, label:nodeIdInput.value, final: 0, inicial: 0});
-            // arrayEstadosFinales.push(0);
-            // arrayLabelEstados.push(data.id);
-          }
+          arrayIdEstados.push(nextId);
+          nodes.add({id:nextId, label:nodeIdInput.value + ": Estado Inicial", title:"Estado Inicial", final: 0, inicial: 1});
+          // arrayEstadosFinales.push(0);
+          // arrayLabelEstados.push(data.id);
         }
-        nextId++;
-        nodeClearPopUp();
-        network.redraw();
-        callback(data);
       }
       else{
-        alert("Se debe indicar si el estado ingresado es final o no. Ingrese 'si' o 'no'.");
-        return null;
+        if(finalState == 'si'){
+          arrayIdEstados.push(nextId);
+          nodes.add({id:nextId, label:nodeIdInput.value + ": Estado Final", title:"Estado Final", final: 1, inicial: 0});
+          // arrayEstadosFinales.push(1);
+          // arrayLabelEstados.push(data.id);
+        }
+        else{
+          arrayIdEstados.push(nextId);
+          nodes.add({id:nextId, label:nodeIdInput.value, final: 0, inicial: 0});
+          // arrayEstadosFinales.push(0);
+          // arrayLabelEstados.push(data.id);
+        }
       }
-    }
+      nextId++;
+      nodeClearPopUp();
+      network.redraw();
+      callback(data);
+  }
 }
 
 function edgeClearPopUp(){
